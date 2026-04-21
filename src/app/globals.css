@@ -1,26 +1,125 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ─────────────────────────────────────────────────────
+   Figma Design Tokens  (source: ANncpmlF0TqKhCbLZqEA9v)
+   ───────────────────────────────────────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Colors */
+  --color-border-default:   #DCDEE3;
+  --color-text-primary:     #2A3038;
+  --color-text-secondary:   #555D6D;
+  --color-bg-primary:       #FFFFFF;
+  --color-bg-secondary:     #F3F4F5;
+  --color-brand-primary:    #FF6F0F;
+  --color-brand-secondary:  #E68507;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Spacing */
+  --spacing-2:   2px;
+  --spacing-4:   4px;
+  --spacing-6:   6px;
+  --spacing-10:  10px;
+  --spacing-12:  12px;
+  --spacing-14:  14px;
+  --spacing-16:  16px;
+  --spacing-20:  20px;
+  --spacing-32:  32px;
+  --spacing-80:  80px;
+  --spacing-260: 260px;
+
+  /* Border Radius */
+  --radius-4:    4px;
+  --radius-12:   12px;
+  --radius-16:   16px;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-family-base: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+  --font-size-38: 38px;
+  --font-weight-regular:  400;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+  --line-height-20: 20px;
+  --line-height-24: 24px;
+  --line-height-38: 38px;
+  --letter-spacing-0: 0px;
+
+  /* Tailwind alias mapping */
+  --color-background: var(--color-bg-primary);
+  --color-foreground: var(--color-text-primary);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-base);
+}
+
+/* ── Button component styles ─────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-4);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s ease, background-color 0.15s ease;
+  font-family: var(--font-family-base);
+  letter-spacing: var(--letter-spacing-0);
+}
+.btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* primary */
+.btn--primary {
+  height: 32px;
+  padding: 0 var(--spacing-12);
+  background-color: var(--color-brand-primary);
+  color: var(--color-bg-primary);
+  border-radius: var(--radius-4);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-20);
+}
+.btn--primary:hover:not(.btn--disabled) {
+  background-color: var(--color-brand-secondary);
+}
+
+/* search */
+.btn--search {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-primary);
+  border-radius: var(--radius-full);
+}
+.btn--search:hover:not(.btn--disabled) { opacity: 0.85; }
+
+/* ghost */
+.btn--ghost {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border-radius: var(--radius-4);
+  border: 1.5px solid var(--color-border-default);
+}
+.btn--ghost:hover:not(.btn--disabled) {
+  background-color: var(--color-bg-secondary);
+}
+
+/* disabled */
+.btn--disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.4;
 }
