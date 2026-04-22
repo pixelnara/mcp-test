@@ -188,21 +188,42 @@ export default function MainPrototypePage() {
                     overflow: "hidden",
                   }}
                 >
-                  {popularKeywords.map((kw) => (
-                    <span
-                      key={kw}
-                      style={{
-                        fontSize: "var(--font-size-14)",
-                        fontWeight: 400,
-                        color: "var(--color-text-secondary)",
-                        lineHeight: "var(--line-height-24)",
-                        whiteSpace: "nowrap",
-                        cursor: "pointer",
-                      }}
-                    >
-                      {kw}
-                    </span>
-                  ))}
+                  {popularKeywords.map((kw) => {
+                    if (kw === "현대 중고차") {
+                      return (
+                        <Link key={kw} href="/prototype/search">
+                          <span
+                            style={{
+                              fontSize: "var(--font-size-14)",
+                              fontWeight: 400,
+                              color: "var(--color-text-secondary)",
+                              lineHeight: "var(--line-height-24)",
+                              whiteSpace: "nowrap",
+                              cursor: "pointer",
+                            }}
+                          >
+                            {kw}
+                          </span>
+                        </Link>
+                      );
+                    }
+
+                    return (
+                      <span
+                        key={kw}
+                        style={{
+                          fontSize: "var(--font-size-14)",
+                          fontWeight: 400,
+                          color: "var(--color-text-secondary)",
+                          lineHeight: "var(--line-height-24)",
+                          whiteSpace: "nowrap",
+                          cursor: "pointer",
+                        }}
+                      >
+                        {kw}
+                      </span>
+                    );
+                  })}
                 </div>
                 <div
                   style={{
