@@ -3,6 +3,7 @@
 import styles from "./SearchPage.module.css"; //0422수정
 
 import { useState } from "react";
+import Link from "next/link";
 import SearchBar from "@/components/SearchBar";
 import Button from "@/components/Button";
 import Tag from "@/components/Tag";
@@ -460,17 +461,19 @@ function Header() {
         backgroundColor: "white",
       }}
     >
-      <div
+      <Link
+        href="/prototype/main"
         style={{
           fontFamily: "var(--font-family-base)",
           fontSize: "var(--font-size-20)",
           fontWeight: 700,
           lineHeight: "var(--line-height-28)",
           color: "var(--color-brand-primary)",
+          textDecoration: "none",
         }}
       >
         당근마켓
-      </div>
+      </Link>
       <Button variant="primary" label="앱 다운로드" />
     </header>
   );
