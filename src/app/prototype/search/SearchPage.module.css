@@ -1,0 +1,117 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-bg-primary);
+  outline: 8px solid blue; /* //0422수정 테스트 */
+}
+
+.topSearchSection {
+  padding: var(--spacing-20) var(--spacing-80);
+  border-bottom: 1px solid var(--color-border-default);
+  background-color: white;
+}
+
+.topSearchInner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+}
+
+.searchBarWrap {
+  flex: 1;
+  max-width: 754px;
+}
+
+.breadcrumbSection {
+  padding: var(--spacing-20) var(--spacing-80);
+}
+
+/* //0422수정 */
+.container {
+  display: flex;
+  flex: 1;
+  width: 100%; /* //0422수정 */
+}
+
+/* //0422수정 */
+.filterPanel {
+  width: 242px;
+  padding: var(--spacing-16);
+  background-color: var(--color-bg-primary);
+  border-right: 1px solid var(--color-border-default);
+  flex-shrink: 0;
+}
+
+/* //0422수정 */
+.mainContent {
+  flex: 1;
+  min-width: 0;
+  width: 100%; /* //0422수정 ← 이거 추가 */
+  padding: var(--spacing-20);
+}
+
+/* //0422수정 */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--spacing-16);
+  outline: 2px solid red; /* //0422수정 테스트용 */
+}
+
+/* //0422수정 */
+@media (max-width: 1199px) {
+  .cardGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* //0422수정 */
+@media (max-width: 899px) {
+  .topSearchSection,
+  .breadcrumbSection {
+    padding-left: var(--spacing-20);
+    padding-right: var(--spacing-20);
+  }
+
+  .cardGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* //0422수정 */
+@media (max-width: 599px) {
+  .topSearchSection,
+  .breadcrumbSection {
+    padding-left: var(--spacing-16);
+    padding-right: var(--spacing-16);
+  }
+
+  .topSearchInner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .searchBarWrap {
+    max-width: none;
+    width: 100%;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  .filterPanel {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border-default);
+  }
+
+  .mainContent {
+    padding: var(--spacing-16);
+  }
+
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+}
