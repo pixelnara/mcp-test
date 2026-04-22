@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
-export default function HomePage() {
-  const menus = [
-    { href: '/prototype',     emoji: '🛠️', label: '프로토타입',    desc: '메인 · 검색 결과 화면' },
-    { href: '/design-system', emoji: '🎨', label: '디자인 시스템', desc: '컬러 · 타이포 · 컴포넌트' },
+export default function PrototypePage() {
+  const screens = [
+    { href: '/prototype/main', emoji: '🏠', label: '메인', desc: '홈 화면 프로토타입' },
+    { href: '/prototype/search', emoji: '🔍', label: '검색 결과', desc: '중고차 검색 결과' },
   ];
 
   return (
@@ -17,9 +17,25 @@ export default function HomePage() {
         alignItems: 'center',
         justifyContent: 'center',
         padding: 'var(--spacing-32)',
+        position: 'relative',
       }}
     >
-      {/* Title */}
+      <Link
+        href="/"
+        style={{
+          position: 'absolute',
+          top: 'var(--spacing-20)',
+          left: 'var(--spacing-20)',
+          fontSize: 'var(--font-size-14)',
+          fontWeight: 400,
+          lineHeight: 'var(--line-height-20)',
+          color: 'var(--color-text-secondary)',
+          textDecoration: 'none',
+        }}
+      >
+        ← 홈으로
+      </Link>
+
       <div style={{ marginBottom: 'var(--spacing-32)', textAlign: 'center' }}>
         <h1
           style={{
@@ -27,10 +43,10 @@ export default function HomePage() {
             fontSize: 'var(--font-size-38)',
             fontWeight: 700,
             lineHeight: 'var(--line-height-38)',
-            color: 'var(--color-brand-primary)',
+            color: 'var(--color-text-primary)',
           }}
         >
-          당근마켓
+          프로토타입
         </h1>
         <p
           style={{
@@ -41,11 +57,10 @@ export default function HomePage() {
             color: 'var(--color-text-secondary)',
           }}
         >
-          프로토타입 &amp; 디자인 시스템
+          화면을 선택하세요
         </p>
       </div>
 
-      {/* Menu Cards */}
       <div
         style={{
           display: 'grid',
@@ -55,7 +70,7 @@ export default function HomePage() {
           maxWidth: 440,
         }}
       >
-        {menus.map(({ href, emoji, label, desc }) => (
+        {screens.map(({ href, emoji, label, desc }) => (
           <Link key={href} href={href} style={{ textDecoration: 'none' }}>
             <div
               style={{

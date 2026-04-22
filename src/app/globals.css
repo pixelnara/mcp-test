@@ -1,51 +1,11 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 @import "tailwindcss";
+@import "../../theme.css";
 
 /* ─────────────────────────────────────────────────────
-   Figma Design Tokens  (source: ANncpmlF0TqKhCbLZqEA9v)
+   Tailwind alias mapping (using theme.css variables)
    ───────────────────────────────────────────────────── */
 @theme inline {
-  /* Colors */
-  --color-border-default:   #DCDEE3;
-  --color-text-primary:     #2A3038;
-  --color-text-secondary:   #555D6D;
-  --color-bg-primary:       #FFFFFF;
-  --color-bg-secondary:     #F3F4F5;
-  --color-brand-primary:    #FF6F0F;
-  --color-brand-secondary:  #E68507;
-
-  /* Spacing */
-  --spacing-2:   2px;
-  --spacing-4:   4px;
-  --spacing-6:   6px;
-  --spacing-10:  10px;
-  --spacing-12:  12px;
-  --spacing-14:  14px;
-  --spacing-16:  16px;
-  --spacing-20:  20px;
-  --spacing-32:  32px;
-  --spacing-80:  80px;
-  --spacing-260: 260px;
-
-  /* Border Radius */
-  --radius-4:    4px;
-  --radius-12:   12px;
-  --radius-16:   16px;
-  --radius-full: 9999px;
-
-  /* Typography */
-  --font-family-base: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
-  --font-size-14: 14px;
-  --font-size-16: 16px;
-  --font-size-38: 38px;
-  --font-weight-regular:  400;
-  --font-weight-semibold: 600;
-  --font-weight-bold:     700;
-  --line-height-20: 20px;
-  --line-height-24: 24px;
-  --line-height-38: 38px;
-  --letter-spacing-0: 0px;
-
-  /* Tailwind alias mapping */
   --color-background: var(--color-bg-primary);
   --color-foreground: var(--color-text-primary);
 }
@@ -66,7 +26,9 @@ body {
   outline: none;
   cursor: pointer;
   white-space: nowrap;
-  transition: opacity 0.15s ease, background-color 0.15s ease;
+  transition:
+    opacity 0.15s ease,
+    background-color 0.15s ease;
   font-family: var(--font-family-base);
   letter-spacing: var(--letter-spacing-0);
 }
@@ -101,7 +63,9 @@ body {
   color: var(--color-bg-primary);
   border-radius: var(--radius-full);
 }
-.btn--search:hover:not(.btn--disabled) { opacity: 0.85; }
+.btn--search:hover:not(.btn--disabled) {
+  opacity: 0.85;
+}
 
 /* ghost */
 .btn--ghost {
